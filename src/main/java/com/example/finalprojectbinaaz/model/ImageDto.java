@@ -1,7 +1,5 @@
 package com.example.finalprojectbinaaz.model;
 
-import com.example.finalprojectbinaaz.dao.entity.ProductEntity;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

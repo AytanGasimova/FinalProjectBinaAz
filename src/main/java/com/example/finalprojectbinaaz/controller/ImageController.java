@@ -1,7 +1,6 @@
 package com.example.finalprojectbinaaz.controller;
 
 import com.example.finalprojectbinaaz.model.ImageDto;
-import com.example.finalprojectbinaaz.model.ProductDto;
 import com.example.finalprojectbinaaz.service.ImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

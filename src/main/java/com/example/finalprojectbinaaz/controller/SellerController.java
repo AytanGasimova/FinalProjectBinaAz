@@ -1,15 +1,10 @@
 package com.example.finalprojectbinaaz.controller;
 
-import com.example.finalprojectbinaaz.dao.entity.SellerEntity;
-import com.example.finalprojectbinaaz.model.AdvanceInfo;
 import com.example.finalprojectbinaaz.model.BasicInfo;
-import com.example.finalprojectbinaaz.model.ProductDto;
 import com.example.finalprojectbinaaz.model.SellerDto;
-import com.example.finalprojectbinaaz.service.ProductService;
 import com.example.finalprojectbinaaz.service.SellerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

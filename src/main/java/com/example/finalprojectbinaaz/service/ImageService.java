@@ -2,11 +2,8 @@ package com.example.finalprojectbinaaz.service;
 
 import com.example.finalprojectbinaaz.dao.repository.ImageRepository;
 import com.example.finalprojectbinaaz.mapper.ImageMapper;
-import com.example.finalprojectbinaaz.mapper.ProductMapper;
 import com.example.finalprojectbinaaz.model.ImageDto;
-import com.example.finalprojectbinaaz.model.ProductDto;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

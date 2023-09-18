@@ -1,6 +1,5 @@
 package com.example.finalprojectbinaaz.controller;
 
-import com.example.finalprojectbinaaz.dao.entity.ProductEntity;
 import com.example.finalprojectbinaaz.model.ProductDto;
 import com.example.finalprojectbinaaz.model.ProductFilterDto;
 import com.example.finalprojectbinaaz.service.ProductService;
