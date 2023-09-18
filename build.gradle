@@ -1,8 +1,8 @@
 plugins {
     id 'java'
     id 'groovy'
-    id 'org.springframework.boot' version '3.1.2'
-    id 'io.spring.dependency-management' version '1.1.2'
+    id 'org.springframework.boot' version '3.1.3'
+    id 'io.spring.dependency-management' version '1.1.3'
 }
 
 group = 'com.example'
@@ -36,18 +36,24 @@ dependencies {
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
-//    implementation 'org.liquibase:liquibase-core:4.20.0'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+//    implementation 'org.liquibase:liquibase-core:4.23.2'
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-    implementation 'org.springframework.boot:spring-boot-starter-validation:3.1.0'
-//	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.0.3'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:3.1.3'
+//	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.0.4'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
-    testImplementation 'org.spockframework:spock-core:2.3-groovy-4.0'
-    testImplementation 'org.codehaus.groovy:groovy-all:3.0.9' // Spock 2.x requires Groovy 3.x
+//    testImplementation 'org.spockframework:spock-core:2.3-groovy-4.0'
+    testImplementation 'org.codehaus.groovy:groovy-all:3.0.19' // Spock 2.x requires Groovy 3.x
     testImplementation 'io.github.benas:random-beans:3.7.0'
     implementation 'io.github.benas:random-beans:3.7.0'
     implementation 'io.springfox:springfox-swagger-ui:2.0.2'
     implementation 'io.github.benas:random-beans:3.7.0'
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.1.3'
+
+    testImplementation 'org.spockframework:spock-core:2.4-M1-groovy-3.0'
+
+
+
 }
 
 tasks.named('test') {
