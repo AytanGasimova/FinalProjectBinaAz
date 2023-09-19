@@ -11,6 +11,7 @@ class SellerMapperTest extends Specification {
     private SellerMapper sellerMapper = Mappers.getMapper(SellerMapper.class)
     private SellerEntity sellerEntity
     private SellerDto sellerDto
+
     private EnhancedRandom random = EnhancedRandomBuilder.aNewEnhancedRandom()
 
     void setup() {
@@ -58,7 +59,7 @@ class SellerMapperTest extends Specification {
         result.location == sellerDto.location
     }
 
-    def "TestMapDtoToEntity with id successes"() {
+    def "MapDtoToEntity with id successes"() {
         given:
         sellerDto = random.nextObject(SellerDto)
         Long sellerId = random.nextLong()
