@@ -6,5 +6,5 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface ImageMapper {
-    ImageEntity mapDtoToEntity(ImageDto pimageDto);
+    ImageEntity mapDtoToEntity(ImageDto imageDto);
 }
