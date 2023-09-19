@@ -9,7 +9,7 @@ import spock.lang.Specification
 import org.mapstruct.factory.Mappers
 
 class ImageMapperTest extends Specification {
-    private ImageMapper imageMapper
+    private ImageMapper imageMapper = Mappers.getMapper(ImageMapper.class)
     private ImageDto imageDto
     private EnhancedRandom random = EnhancedRandomBuilder.aNewEnhancedRandom()
 
@@ -20,8 +20,6 @@ class ImageMapperTest extends Specification {
 
     def "MapDtoToEntity successes"() {
         given:
-        imageMapper = Mappers.getMapper(ImageMapper.class)
-
         imageDto = random.nextObject(ImageDto)
 
         when:
