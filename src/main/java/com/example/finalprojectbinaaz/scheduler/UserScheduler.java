@@ -18,7 +18,7 @@ public class UserScheduler {
         this.productRepository = productRepository;
     }
 
-    @Scheduled(cron = "0 0 21 * * ?")
+    @Scheduled(cron = "0 0 0 * * ?")
     public void schedulerAdExpireDate() {
         List<ProductEntity> products = productRepository.findAll();
         LocalDateTime expireDate = LocalDateTime.now().minusMonths(1);
