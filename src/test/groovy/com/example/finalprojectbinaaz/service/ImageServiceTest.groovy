@@ -8,6 +8,7 @@ import io.github.benas.randombeans.EnhancedRandomBuilder
 import io.github.benas.randombeans.api.EnhancedRandom
 import spock.lang.Specification
 
+
 class ImageServiceTest extends Specification {
     private ImageRepository imageRepository;
     private ImageMapper imageMapper;
@@ -33,4 +34,22 @@ class ImageServiceTest extends Specification {
         1 * imageMapper.mapDtoToEntity(imageDto) >> imageEntity
         1 * imageRepository.save(imageEntity)
     }
+
+//    def "SaveImage with error"() {
+//        given:
+//        ImageDto imageDto = random.nextObject(ImageDto)
+//
+//        when:
+//        imageService.saveImage(imageDto)
+//
+//        then:
+//        1 * imageMapper.mapDtoToEntity(imageDto) >> {
+//            throw new RuntimeException("Map was failed")
+//        }
+//        0 * imageRepository.save(imageEntity)
+//
+//        def exception = thrown(RuntimeException)
+//        exception.message = "Map was failed"
+//
+//    }
 }

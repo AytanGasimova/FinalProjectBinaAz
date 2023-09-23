@@ -87,6 +87,23 @@ class SellerServiceTest extends Specification {
         1 * sellerRepository.save(sellerEntity)
     }
 
+//    def "SaveSeller mapper failed exception"() {
+//        given:
+//        SellerDto sellerDto = random.nextObject(SellerDto)
+//
+//        when:
+//        sellerService.saveSeller(sellerDto)
+//
+//        then:
+//        1 * sellerMapper.mapDtoToEntity(sellerDto) >> {
+//            throw new RuntimeException("Map was failed")
+//        }
+//        0 * sellerRepository.save(_)
+//
+//        def exception = thrown(RuntimeException)
+//        exception.message = "Map was failed"
+//    }
+
     def "EditSeller successes"() {
         given:
         SellerDto sellerDto = random.nextObject(SellerDto)

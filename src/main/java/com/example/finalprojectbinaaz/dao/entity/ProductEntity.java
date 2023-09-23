@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,7 +23,7 @@ public class ProductEntity {
     private Long id;
     private String district;
     private String metro;
-    /* shooting - mark */
+    /* shooting - mark (nişangah)*/
     private String mark;
     /* in which city is situated */
     private String city;
