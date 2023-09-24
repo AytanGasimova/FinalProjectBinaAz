@@ -7,12 +7,16 @@ import com.example.finalprojectbinaaz.mapper.ProductMapper;
 import com.example.finalprojectbinaaz.model.ProductDto;
 import com.example.finalprojectbinaaz.model.ProductFilterDto;
 import com.example.finalprojectbinaaz.service.specification.*;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import java.util.stream.Collectors;
 
@@ -22,6 +26,7 @@ import java.util.stream.Collectors;
 public class ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
+    private final JavaMailSender javaMailSender;
 //    private final FilterSpecification specification;
 
 
@@ -75,5 +80,17 @@ public class ProductService {
         productRepository.deleteById(id);
         log.info("ActionLog.deleteProduct.end");
         return true;
+    }
+
+   public void sendEmail(String toEmail, String subject, String text) throws MessagingException {
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper;
+
+        helper = new MimeMessageHelper(message);
+        helper.setTo(toEmail);
+        helper.setSubject(subject);
+        helper.setText(text);
+
+        javaMailSender.send(message);
     }
 }
