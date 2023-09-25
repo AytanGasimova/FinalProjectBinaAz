@@ -28,13 +28,11 @@ public class EmailScheduler {
         for (ProductEntity product : products) {
             LocalDateTime creationDate = product.getCreationDate();
             if (creationDate.isBefore(expireDate)) {
-//                System.out.println("Dear, " + product.getSellerEntity().getName()
-//                        + "! Your ad date has expired.");
                 productService.sendEmail(product.getSellerEntity().getEmail(),
                         "Informational email",
                         "Your ad date has expired. It will be deleted after 6 hours."
                 );
-                System.out.println("email was sent.");
+                System.out.println("Email was sent.");
             }
         }
     }

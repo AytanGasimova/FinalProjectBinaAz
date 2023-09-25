@@ -19,6 +19,9 @@ public class ProductFilterDto {
     private String district;
     private String metro;
     private String mark;
+    private boolean isRenovated;
+    private boolean hasDocument;
+    private boolean isMortgageable;
     private CategoryType categoryType;
     private TransactionType transactionType;
 }

@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -27,26 +26,15 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
     private final JavaMailSender javaMailSender;
-//    private final FilterSpecification specification;
+    private final FilterSpecification specification;
 
 
     public Page<ProductDto> getProducts(Pageable pageable,
                                         ProductFilterDto productFilterDto){
         log.info("ActionLog.getProducts.start");
-        Specification<ProductEntity> specification = Specification
-                .where(new ProductIdSpecification(productFilterDto.getId()))
-                .and(new ProductAreaSpecification(productFilterDto.getProductArea()))
-                .and(new ProductFloorSpecification(productFilterDto.getOnWhatFloor()))
-                .and(new ProductRoomSpecification(productFilterDto.getCountOfRoom()))
-                .and(new ProductPriceSpecification(productFilterDto.getPrice()))
-                .and(new ProductCitySpecification(productFilterDto.getCity()))
-                .and(new ProductDistrictSpecification(productFilterDto.getDistrict()))
-                .and(new ProductMetroSpecification(productFilterDto.getMetro()))
-                .and(new ProductMarkSpecification(productFilterDto.getMark()))
-                .and(new ProductCategoryTypeSpecification(productFilterDto.getCategoryType()))
-                .and(new ProductTransactionTypeSpecification(productFilterDto.getTransactionType()));
+        var specificationFilter = specification.filterProduct(productFilterDto);
 
-        var products = productRepository.findAll(specification,pageable)
+        var products = productRepository.findAll(specificationFilter,pageable)
                         .stream().map(productMapper::mapEntityToDto)
                         .collect(Collectors.toList());
         log.info("ActionLog.getProducts.end");
