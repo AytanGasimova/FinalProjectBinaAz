@@ -18,8 +18,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     generate-ddl: true
+    show-sql: true
 
   mail:
     host: smtp.gmail.com

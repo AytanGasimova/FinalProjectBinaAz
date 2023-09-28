@@ -86,20 +86,14 @@ databaseChangeLog:
               - column:
                   name: isRenovated
                   type: boolean
-                  constraints:
-                    nullable: false
                   remarks: the object was renovated or not
               - column:
                   name: hasDocument
                   type: boolean
-                  constraints:
-                    nullable: false
                   remarks: has or not document for object
               - column:
                   name: isMortgageable
                   type: boolean
-                  constraints:
-                    nullable: false
                   remarks: is or not mortgageable object
               - column:
                   name: previewImageId

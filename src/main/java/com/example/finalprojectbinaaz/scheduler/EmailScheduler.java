@@ -33,6 +33,8 @@ public class EmailScheduler {
                         "Your ad date has expired. It will be deleted after 6 hours."
                 );
                 System.out.println("Email was sent.");
+                System.out.println("Dear, " + product.getSellerEntity().getName()
+                                            + "! Your ad date has expired.");
             }
         }
     }
