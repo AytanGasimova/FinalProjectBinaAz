@@ -1,0 +1,35 @@
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/postgres
+#    username: postgres
+#    password: A1a2a3a4a5!
+#  jpa:
+#    generate-ddl: true
+#    show-sql: true
+#
+#
+
+spring:
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml
+  datasource:
+    username: postgres
+    password: A1a2a3a4a5!
+    url: jdbc:postgresql://localhost:5432/postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: aytangasimova148@gmail.com
+    password: nhsfunmzhzqrwcws
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

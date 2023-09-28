@@ -14,7 +14,9 @@ import org.springframework.data.domain.Pageable
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
 import spock.lang.Specification
+import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Page
+import org.springframework.data.domain.Sort
 
 class ProductServiceTest extends Specification {
     private ProductRepository productRepository
@@ -39,7 +41,7 @@ class ProductServiceTest extends Specification {
 
     def "GetProducts successes"() {
         given:
-        def pageable = Pageable.ofSize(10).withPage(1)
+        def pageable = PageRequest.of(1, 10, Sort.by(Sort.Order.asc("id")))
         def productFilterDto = new ProductFilterDto()
         def productEntityList = [random.nextObject(ProductEntity),
                                  random.nextObject(ProductEntity),
@@ -47,12 +49,12 @@ class ProductServiceTest extends Specification {
         List<ProductDto> productDtoList = [random.nextObject(ProductDto),
                                          random.nextObject(ProductDto),
                                          random.nextObject(ProductDto)]
-        def productPage = new PageImpl<>(productDtoList)
+        Page<ProductDto> productPage = new PageImpl<>(productDtoList)
 
         when:
         def result = productService.getProducts(pageable, productFilterDto)
         then:
-        1 * productService.specification.filterProduct(productFilterDto) >> specification
+        1 * productService.specification.filterProduct(productFilterDto) >> _
         1 * productRepository.findAll(specification, pageable) >> productPage
         1 * productMapper.mapEntityToDto(productEntityList) >> productDtoList
 

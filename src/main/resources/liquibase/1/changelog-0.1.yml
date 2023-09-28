@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create images table
+      author: Aytan Gasimova
+      changes:
+        - createTable:
+            tableName: images
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: id of images
+              - column:
+                  name: image
+                  type: text
+                  remarks: name of images
+              - column:
+                  name: is_preview_image
+                  type: boolean
+                  constraints:
+                    nullable: false
+                  remarks: pre-view image
+              - column:
+                  name: product_entity_id
+                  type: bigint
+                  remarks: id of products
+                  constraints:
+                    - foreignKey:
+                        baseColumnNames: id
+                        baseTableName: images
+                        referencedColumnNames: id
+                        referencedTableName: products_ad
+                        constraintName: fk_images_id_to_products_ad_id
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: When the record created
+            remarks: Table to store information about products`

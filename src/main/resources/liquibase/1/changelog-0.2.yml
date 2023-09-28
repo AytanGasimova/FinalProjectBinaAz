@@ -1,0 +1,124 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create products_ad table
+      author: Aytan Gasimova
+      changes:
+        - createTable:
+            tableName: products_ad
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: id of product
+              - column:
+                  name: district
+                  type: varchar(30)
+                  remarks: district of product
+              - column:
+                  name: metro
+                  type: varchar(30)
+                  remarks: metro of product location
+              - column:
+                  name: mark
+                  type: varchar(50)
+                  remarks: shooting - mark of product location
+              - column:
+                  name: city
+                  type: varchar(30)
+                  remarks: city of product location
+              - column:
+                  name: description
+                  type: text
+                  remarks: info about product
+              - column:
+                  name: on_what_floor
+                  type: integer
+                  remarks: on what floor it locates
+              - column:
+                  name: number_of_floor
+                  type: integer
+                  remarks: number of floors
+              - column:
+                  name: price
+                  type: numeric(10,2)
+                  constraints:
+                    nullable: false
+                  remarks: price of product
+              - column:
+                  name: transaction_type
+                  type: varchar(35)
+                  constraints:
+                    checkConstraint: (transaction_type::text = ANY (ARRAY ['SELLING'::character varying, 'RENT'::character varying, 'AGENCY'::character varying, 'COMPLEX'::character varying])::text[])
+                    nullable: true
+                  remarks: selling, rent, agencies, residential complexes
+              - column:
+                  name: category_type
+                  type: varchar(35)
+                  constraints:
+                    checkConstraint: (category_type::text = ANY (ARRAY ['APARTMENT_NEW'::character varying, 'APARTMENT_OLD'::character varying, 'VILLA'::character varying, 'OFFICE'::character varying, 'GARAGE'::character varying, 'LAND'::character varying, 'OBJECT_'::character varying])::text[]),
+                    nullable: false
+                  remarks: new or old apartments, villas, offices, garages, lands, objects
+              - column:
+                  name: advertisement_type
+                  type: varchar(10)
+                  constraints:
+                    checkConstraint: (advertisement_type::text = ANY (ARRAY ['SIMPLE'::character varying, 'VIP'::character varying, 'PREMIUM'::character varying])::text[]),
+                    nullable: false
+                  remarks: VIP or simple advertisements
+              - column:
+                  name: creation_date
+                  type: timestamp
+                  remarks: date of advertisement's creation
+              - column:
+                  name: product_area
+                  type: numeric(7,2)
+                  constraints:
+                    nullable: false
+                  remarks: area of product
+              - column:
+                  name: count_of_room
+                  type: integer
+                  remarks: count of object's room
+              - column:
+                  name: isRenovated
+                  type: boolean
+                  constraints:
+                    nullable: false
+                  remarks: the object was renovated or not
+              - column:
+                  name: hasDocument
+                  type: boolean
+                  constraints:
+                    nullable: false
+                  remarks: has or not document for object
+              - column:
+                  name: isMortgageable
+                  type: boolean
+                  constraints:
+                    nullable: false
+                  remarks: is or not mortgageable object
+              - column:
+                  name: previewImageId
+                  type: bigint
+                  remarks: id of image for first view
+              - column:
+                  name: seller_entity_id
+                  type: bigint
+                  remarks: id of seller
+                  constraints:
+                    - foreignKey:
+                        baseColumnNames: seller_entity_id
+                        baseTableName: products_ad
+                        referencedColumnNames: id
+                        referencedTableName: sellers
+                        constraintName: fk_products_ad_to_images
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: When the record created
+            remarks: Table to store information about products`

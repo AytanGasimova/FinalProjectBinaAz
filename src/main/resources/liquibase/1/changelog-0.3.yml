@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create sellers table
+      author: Aytan Gasimova
+      changes:
+        - createTable:
+            tableName: sellers
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: id of seller
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                  remarks: name of seller
+              - column:
+                  name: tel_number
+                  type: varchar(15)
+                  remarks: tel number of seller
+              - column:
+                  name: email
+                  type: varchar(50)
+                  remarks: Email of seller
+              - column:
+                  name: location
+                  type: varchar(100)
+                  remarks: address of seller
+              - column:
+                  name: agency_description
+                  type: text
+                  remarks: info about seller
+              - column:
+                  name: seller_type
+                  type: varchar(15)
+                  constraints:
+                    checkConstraint: (seller_type)::text = ANY((ARRAY ['OWNER'::character varying, 'AGENT'::character varying])::text[]),
+                    nullable: false
+                  remarks: owner or agent of object
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: When the record created
+            remarks: Table to store information about products`
