@@ -25,6 +25,13 @@ public class SellerService {
         return sellerMapper.mapListEntityToListDto(sellerEntityList);
     }
 
+//    public List<String> getSellersEmails(){
+//        log.info("ActionLog.getSellersEmails.start");
+//        var sellersEmails = sellerRepository.findAllEmails();
+//        log.info("ActionLog.getSellersEmails.end");
+//        return sellersEmails;
+//    }
+
 
     public SellerDto getSeller(Long id){
         log.info("ActionLog.getSeller.start");

@@ -26,14 +26,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-freemarker'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
-//	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//	testImplementation 'org.springframework.security:spring-security-test'
-
+	testImplementation 'org.springframework.security:spring-security-test'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
@@ -46,13 +45,16 @@ dependencies {
     testImplementation 'org.codehaus.groovy:groovy-all:3.0.19' // Spock 2.x requires Groovy 3.x
     testImplementation 'io.github.benas:random-beans:3.7.0'
     implementation 'io.github.benas:random-beans:3.7.0'
-    implementation 'io.springfox:springfox-swagger-ui:2.0.2'
+    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
     implementation 'io.github.benas:random-beans:3.7.0'
     implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.1.3'
     implementation 'jakarta.mail:jakarta.mail-api:2.1.2'
-
-
     testImplementation 'org.spockframework:spock-core:2.4-M1-groovy-3.0'
+
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+//    implementation 'org.springframework.boot:spring-boot-starter-web-services'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+//    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 
 
 

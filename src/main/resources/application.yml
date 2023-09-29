@@ -6,8 +6,6 @@
 #  jpa:
 #    generate-ddl: true
 #    show-sql: true
-#
-#
 
 spring:
   liquibase:
@@ -19,7 +17,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    generate-ddl: true
+    generate-ddl: false
     show-sql: true
 
   mail:

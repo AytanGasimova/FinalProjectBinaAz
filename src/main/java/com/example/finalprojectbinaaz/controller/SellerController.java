@@ -20,6 +20,11 @@ public class SellerController {
     public List<SellerDto> getSellers(){
         return sellerService.getSellers();
     }
+
+//    @GetMapping("/emails")
+//    public List<String> getSellersEmails(){
+//        return sellerService.getSellersEmails();
+//    }
     @GetMapping("/{sellerId}")
     public SellerDto getSeller(@PathVariable Long sellerId){
         return sellerService.getSeller(sellerId);
